@@ -1,0 +1,13 @@
+#imports:
+ #- { resource:  }
+#parameters:
+#    home_task.example.class: Home\TaskBundle\Example
+#TaskModel.class : Home\TaskBundle\Model\TaskModel
+#services:
+#    home_task.example:
+#        class: %home_task.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+#TaskModel:
+ #class: %TaskModel.class%
+ #arguments: [@doctrine.orm.entity_managers]
+

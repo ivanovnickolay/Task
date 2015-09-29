@@ -1,0 +1,25 @@
+<!---  <table class="table .table-hover .table-condensed">
+           <tr>
+               <td>{{ form_label(form.name_task) }}</td>
+               <td>{{ form_widget(form.name_task) }}</td>
+           </tr>
+           <tr>
+               <td>{{ form_label(form.begin_task) }}</td>
+               <td>{{ form_widget(form.begin_task) }}</td>
+           </tr>
+           <tr>
+               <td>{{ form_label(form.end_task) }}</td>
+               <td>{{ form_widget(form.end_task) }}</td>
+           </tr>
+           <tr>
+               <td>{{ form_label(form.Category) }}</td>
+               <td>{{ form_widget(form.Category) }}</td>
+           </tr>
+       </table> -->
+
+
+       // <!--{{ form_label(form.name_task, null,{'label_attr': {'class': 'control-label'}})}}-->
+       //<!-- {{ form_widget(form.name_task,{'attr': {'class': 'form-control'}}) }}-->
+
+
+         <!--  <div class="form-group">{{ form_row(form.name_task,{'label_attr':{'class': 'control-label'},'attr':{'class':'form-control'}}) }} </div> --!>

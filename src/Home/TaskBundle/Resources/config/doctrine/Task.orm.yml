@@ -1,0 +1,40 @@
+Home\TaskBundle\Entity\Task:
+    type: entity
+    table: null
+    repositoryClass: Home\TaskBundle\Entity\TaskRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }
+    fields:
+       name_task:
+            type: string
+            length: 255
+       begin_task:
+            type: date
+       end_task:
+            type: date
+       description:
+            type: string
+            length: 255
+       vajnoct:
+            type: string
+            length: 25
+       final:
+            type: boolean
+
+    manyToOne:
+     Category:
+      targetEntity: Category
+      inversedBy: Task
+      joinColumn:
+       name: Category_id
+       referencedColumnName: id
+    oneToMany:
+     Subtask:
+      targetEntity: Subtask
+      mappedBy: Task
+

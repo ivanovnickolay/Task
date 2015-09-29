@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+
+{% block table -%}
+
+<div class="panel-info" xmlns="http://www.w3.org/1999/html">
+  <div class="page-header"><h1>Задача</h1> </div>
+  <div class="panel-body">
+   <div class="col-md-9 col-lg-9">
+     <table class="table table-user-information" >
+        <tbody>
+            <tr>
+                <th>Наименование задачи </th>
+                <td> {{ entity.nametask }}</td>
+            </tr>
+            <tr>
+                <th>Начало работы над задачей </th>
+                <td>{{ entity.begintask|date('d.m.Y') }}</td>
+            </tr>
+            <tr>
+                <th>Окончание работы над задачей </th>
+                <td>{{ entity.endtask|date('d.m.Y') }}</td>
+            </tr>
+            <tr>
+                <th>Описание задачи </th>
+                <td>{{ entity.description }}</td>
+            </tr>
+            <tr>
+                <th>Категория</th>
+                <td>{{ entity.Category }}</td>
+            </tr>
+            <tr>
+                <th>Важность проекта </th>
+                <td>{{ entity.vajnoct }}</td>
+            </tr>
+            <tr>
+                <th>Проект завершен </th>
+                <td>{% if entity.final == true%}Да, завершен {% else %} Нет, в процессе {% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+   </div>
+  </div>
+</div>
+    <table class="table">
+        <tr>
+            <td> <button>  <a href="{{ path('task') }}">Вернуться к списку </a> </button></td>
+            <td><button> <a href="{{ path('task_edit', { 'id': entity.id }) }}">Редактировать </a> </button> </td>
+            <td>{{ form(delete_form) }}</td>
+        </tr>
+    </table>
+      <div class="panel-info">
+        <div class="page-header"><h2> Под задачи </h2></div>
+          {{ include('@HomeTask/Subtask/show.html.twig', {'subtasks':subtasks,' entity':entity}) }}
+      </div>
+
+{% endblock %}

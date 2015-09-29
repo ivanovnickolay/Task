@@ -1,0 +1,12 @@
+parameters:
+#    home_task.example.class: Home\TaskBundle\Example
+ #TaskModel.class : TaskModel
+services:
+#    home_task.example:
+#        class: %home_task.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+ TaskModel:
+  class: Home\TaskBundle\Models\TaskModel
+  #arguments: [@doctrine.orm.entity_managers]
+  arguments: [@doctrine.orm.entity_manager]
+

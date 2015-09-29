@@ -1,0 +1,24 @@
+{% block HotTask %}
+    <h2>Список горящих задач </h2>
+    <table class="table table-bordered table-striped table-condensed">
+        <thead>
+        <tr>
+            <th>Наименование задачи </th>
+            <th>Начало работы над задачей </th>
+            <th>Окончание работы над задачей</th>
+            <th>Категория задачи</th>
+
+        </tr>
+        </thead>
+        <tbody class=":nth-child">
+        {% for entity in entities %}
+            <tr>
+                <td> <a href="{{ path('task_show', { 'id': entity.id }) }}"> {{ entity.nametask }}</a></td>
+                <td>{% if entity.begintask %}{{ entity.begintask|date('d.m.Y') }}{% endif %}</td>
+                <td>{% if entity.endtask %}{{ entity.endtask|date('d.m.Y') }}{% endif %}</td>
+                <td>{{entity.category}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

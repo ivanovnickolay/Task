@@ -1,0 +1,26 @@
+{% block table_subtask %}
+    <h1>Список подзадач </h1>
+    <table class="table table-bordered table-striped table-condensed">
+        <thead>
+        <tr>
+            <th>Наименование подзадачи </th>
+            <th>Начало работы</th>
+            <th>Окончание работы</th>
+            <th>Процент выполнения</th>
+
+        </tr>
+        </thead>
+        <tbody class=":nth-child">
+        {% for subtask in subtasks %}
+            <tr>
+                <td><a href="{{ path('subtask_edit',{'id_sub':subtask.id}) }}"> {{subtask.subtask}}</a></td>
+                <td>{{subtask.begin|date('d.m.Y') }}</td>
+                <td>{{subtask.end|date('d.m.Y') }}</td>
+                <td>{{subtask.percent}}</td>
+                <td>{{subtask.final}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+ <button><a href="{{ path('subtask_new',{'id_task':entity.id}) }}"> Создать новую подзадачу </a> </button>
+{% endblock %}

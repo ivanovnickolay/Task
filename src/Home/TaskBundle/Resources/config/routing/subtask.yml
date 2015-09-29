@@ -1,0 +1,26 @@
+subtask_create:
+    path:     /create/{id_task}
+    defaults: { _controller: "HomeTaskBundle:Subtask:create" }
+    requirements: { _method: post }
+
+subtask_new:
+    path:     /new/{id_task}
+    defaults: { _controller: "HomeTaskBundle:Subtask:new" }
+
+subtask_show:
+    path:     /{id_sub}/show
+    defaults: { _controller: "HomeTaskBundle:Subtask:show" }
+
+subtask_edit:
+    path:     /{id_sub}/edit
+    defaults: { _controller: "HomeTaskBundle:Subtask:edit" }
+
+subtask_update:
+    path:     /{id_sub}/update
+    defaults: { _controller: "HomeTaskBundle:Subtask:update" }
+    requirements: { _method: post|put }
+
+subtask_delete:
+    path:     /{id_sub}/delete
+    defaults: { _controller: "HomeTaskBundle:Subtask:delete" }
+    requirements: { _method: post|delete }

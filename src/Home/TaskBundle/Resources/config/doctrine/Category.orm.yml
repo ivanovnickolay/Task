@@ -1,0 +1,21 @@
+Home\TaskBundle\Entity\Category:
+    type: entity
+    table: null
+    repositoryClass: Home\TaskBundle\Entity\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }
+    fields:
+       Category:
+            type: string
+            length: 255
+            unique: true
+    oneToMany:
+           Task:
+            targetEntity: Task
+            mappedBy: Category
+

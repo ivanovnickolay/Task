@@ -1,0 +1,31 @@
+Home\TaskBundle\Entity\Subtask:
+   type: entity
+   table: Subtask
+   repositoryClass: Home\TaskBundle\Entity\SubtaskRepository
+   id:
+       id:
+             type: integer
+             id: true
+             generator:
+                 strategy: AUTO
+   lifecycleCallbacks: {  }
+   fields:
+       Subtask:
+             type: string
+             length: 255
+       begin:
+             type: date
+       end:
+             type: date
+       percent:
+             type: integer
+       final:
+             type: boolean
+   manyToOne:
+    Task:
+     targetEntity: Task
+     inversedBy: Subtask
+     joinColumn:
+       name: id_Task
+       referencedColumnName: id
+

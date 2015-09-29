@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+{% block table %}
+        <h1>Список активных задач </h1>
+    <table class="table table-bordered table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>Наименование задачи </th>
+                <th>Начало работы над задачей </th>
+                <th>Окончание работы над задачей</th>
+                <th>Дней до окончания</th>
+                <th>Категория задачи</th>
+
+            </tr>
+        </thead>
+        <tbody class=":nth-child">
+        {% for entity in entities %}
+         {% if date(entity.end_task) < date() %}
+             <tr class="error">
+         {% else %}
+             <tr>
+         {% endif %}
+                <td> <a href="{{ path('task_show', { 'id': entity.id }) }}"> {{ entity.name_task }}</a></td>
+                <td>{% if entity.begin_task %}{{ entity.begin_task|date('d.m.Y') }}{% endif %}</td>
+                <td>{% if entity.end_task %}{{ entity.end_task|date('d.m.Y') }}{% endif %}</td>
+                <td>{{entity.end_task|time_diff}}</td>
+                <td>{{entity.category}}</td>
+             </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+      <li>
+        <a href="{{ path('task_new') }}"> Создать новую задачу </a>
+      </li>
+    </ul>
+{% endblock %}
+{% block Category %}
+    <h1>Категории</h1>
+    {% for category in categories %}
+        <ul>
+            <a href="{{ path('task_category',{'id_cat':category.id_cat}) }}" <li> {{ category.category }} ({{ category.CountCategory  }}) </li> </a>
+        </ul>
+    {% endfor %}
+<a href="{{ path('category_new')}}" class="list-group-item" >Создать новую</a>
+<a href="{{ path('category')}}"  class="list-group-item">Просмотреть все</a>
+{% endblock %}

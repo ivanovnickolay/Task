@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block form -%}
+    <h1>Создание новой задачи</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('task') }}">
+            Вернуться к списку
+        </a>
+    </li>
+</ul>
+{% endblock %}

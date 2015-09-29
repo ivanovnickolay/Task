@@ -1,0 +1,15 @@
+home_task_category:
+    resource: "@HomeTaskBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
+home_task_task:
+    resource: "@HomeTaskBundle/Resources/config/routing/task.yml"
+    prefix:   /task
+
+home_task_subtask:
+    resource: "@HomeTaskBundle/Resources/config/routing/subtask.yml"
+    prefix:   /subtask
+
+home_task_homepage:
+    pattern:  /
+    defaults: { _controller: HomeTaskBundle:Default:index }

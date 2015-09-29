@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+<head>
+    <meta charset="utf-8">
+    <title>Список задач</title>
+</head>
+<body>
+     <ul class="nav nav-pills">
+        <li class="active"><a href="{{path('task') }}"> Главная </a> </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Задачи <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+             <li>  <a href="{{ path('task_new') }}">Создать новую</a></li>
+             <li> <a href="{{ path('task') }}">Просмотреть все</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Категории  <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li>  <a href="{{ path('category_new') }}">Создать новую</a></li>
+                <li> <a href="{{ path('category') }}">Просмотреть все</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="page-header" style="align-content:center">
+        <h1>Список задач и категорий  </h1>
+    </div>
+        <!-- Ряд, состоящий из 3 одинаковых блоков -->
+    <div class="row">
+        <!-- Блок №1, занимающий 3 колонки Bootstrap из 12 -->
+        <div class="col-md-2">
+            <h1>Задачи</h1>
+            <div class="nav-">
+                <a href="{{ path('task_new') }}" class="list-group-item" >Создать новую</a>
+                <a href="{{ path('task') }}"  class="list-group-item">Просмотреть все</a>
+            </div>
+        </div>
+          <!-- Блок №2, занимающий 5 колонки Bootstrap из 12 -->
+        <div class="col-md-8">
+            {% block table %}{% endblock %}
+            {% block form %}{% endblock %}
+            {% block form_subtask %}{% endblock %}
+            {% block HotTask %} {% endblock %}
+            {% render(controller('HomeTaskBundle:Task:HotTask')) %}
+        </div>
+
+        <!-- Список категорий -->
+         <div class="col-xs-2">
+           {% block Category %} {% endblock %}
+
+        </div>
+         <!-- Ряд, состоящий из 1 блока -->
+
+        <!-- Блок, состоящий из 12 колонок -->
+        <div class="col-md-12">
+            <footer>
+                <p>© Copyright 2014</p>
+            </footer>
+        </div>
+    </div>
+<!-- Подключает библиотеку jQuery, необходимую для работы скриптов Bootstrap 3 -->
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<!-- Подключает скрипты JavaScript движка Twitter Bootstrap 3 -->
+<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" > </script>
+ </body>
+</html>

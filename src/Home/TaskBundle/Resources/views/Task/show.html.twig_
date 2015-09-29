@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block table -%}
+
+<div class="panel-info" xmlns="http://www.w3.org/1999/html">
+  <div class="page-header"><h1>Задача</h1> </div>
+  <div class="panel-body">
+   <div class="col-md-9 col-lg-9">
+     <table class="table table-user-information" >
+        <tbody>
+            <tr>
+                <th>Наименование задачи </th>
+                <td>{{ entity.nametask }}</td>
+            </tr>
+            <tr>
+                <th>Начало работы над задачей </th>
+                <td>{{ entity.begintask|date('d-m-Y') }}</td>
+            </tr>
+            <tr>
+                <th>Окончание работы над задачей </th>
+                <td>{{ entity.endtask|date('d-m-Y') }}</td>
+            </tr>
+        </tbody>
+    </table>
+   </div>
+  </div>
+</div>
+    <table class="table">
+        <tr>
+            <td>  <a href="{{ path('task') }}">Вернуться к списку </a></td>
+            <td> <a href="{{ path('task_edit', { 'id': entity.id }) }}">Редактировать </a></td>
+            <td>{{ form(delete_form) }}</td>
+        </tr>
+    </table>
+      <div class="panel-info">
+        <div class="page-header"><h2> Под задачи </h2></div>
+          <table class="table table-bordered table-striped table-condensed">
+
+              <tr>
+                  <td>Подзадача </td> </tr>
+
+                  {% for sub in subtasks %}
+              <tr><td>{{ sub.Subtask }} </td> </tr>
+              {% endfor %}
+
+          </table>
+      </div>
+    <div class="form-horizontal">
+       {{  render (controller('HomeTaskBundle:Subtask:new',{'id_task': entity.id }))}}
+
+    </div>
+{% endblock %}
