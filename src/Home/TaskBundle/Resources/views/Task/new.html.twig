@@ -20,6 +20,18 @@
         <div class="col-sm-6">{{ form_widget(form.Category,{attr:{'class':'form-control'}}) }} </div>
         </div>
         <div class="form-group">
+            {{ form_label(form.description,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
+            <div class="col-sm-6">{{ form_widget(form.description,{attr:{'class':'form-control'}}) }} </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.vajnoct,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
+            <div class="col-sm-6">{{ form_widget(form.vajnoct,{attr:{'class':'form-control'}}) }} </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.final,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
+            <div class="col-sm-6">{{ form_widget(form.final,{attr:{'class':'form-control'}}) }} </div>
+        </div>
+        <div class="form-group">
          <div class="col-sm-offset-3 col-sm-6">{{ form_row(form.submit) }} </div>
         </div>
            {{form_end(form) }}
@@ -32,6 +44,27 @@
     </li>
 </ul>
 {% endblock %}
+{% block JS %}
+    <script>
+        $(document).ready(function(){
 
+            $( "#task_begin_task" ).datepicker({
+                        monthNames:["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+                        dayNamesMin:["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                        firstDay:1,
+                        dateFormat:"dd.mm.yy",}
+            );
+            $( "#task_end_task" ).datepicker({monthNames:["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+                dayNamesMin:["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                firstDay:1,
+                dateFormat:"dd.mm.yy"});
+            // TODO
+            // написать валидацию полей
+            // написать установку даты окочания работы что бы нельзя было ее установить позже даты начала //
+        });
+
+    </script>
+
+{% endblock %}
 
 

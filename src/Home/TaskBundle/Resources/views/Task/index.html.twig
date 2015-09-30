@@ -14,16 +14,11 @@
         </thead>
         <tbody class=":nth-child">
         {% for entity in entities %}
-         {% if date(entity.end_task) < date() %}
-             <tr class="error">
-         {% else %}
-             <tr>
-         {% endif %}
                 <td> <a href="{{ path('task_show', { 'id': entity.id }) }}"> {{ entity.name_task }}</a></td>
                 <td>{% if entity.begin_task %}{{ entity.begin_task|date('d.m.Y') }}{% endif %}</td>
                 <td>{% if entity.end_task %}{{ entity.end_task|date('d.m.Y') }}{% endif %}</td>
-                <td>{{entity.end_task|time_diff}}</td>
-                <td>{{entity.category}}</td>
+                <td></td>
+                <td></td>
              </tr>
         {% endfor %}
         </tbody>
@@ -36,12 +31,8 @@
     </ul>
 {% endblock %}
 {% block Category %}
-    <h1>Категории</h1>
-    {% for category in categories %}
-        <ul>
-            <a href="{{ path('task_category',{'id_cat':category.id_cat}) }}" <li> {{ category.category }} ({{ category.CountCategory  }}) </li> </a>
-        </ul>
-    {% endfor %}
-<a href="{{ path('category_new')}}" class="list-group-item" >Создать новую</a>
-<a href="{{ path('category')}}"  class="list-group-item">Просмотреть все</a>
+    {% render(controller('HomeTaskBundle:Category:getCategory')) %}
+        <!--  <h1>Категории</h1>
+
+-->
 {% endblock %}

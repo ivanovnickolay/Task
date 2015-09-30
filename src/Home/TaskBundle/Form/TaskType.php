@@ -42,6 +42,6 @@ class TaskType extends AbstractType
      */
     public function getName()
     {
-        return 'home_taskbundle_task';
+        return 'task';
     }
 }

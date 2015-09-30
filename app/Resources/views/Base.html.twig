@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+<link href="{{ asset('JS/jquery-ui/CSS/jquery-ui.theme.min.css') }}" type="text/css" rel="stylesheet" />
 <head>
     <meta charset="utf-8">
     <title>Список задач</title>
@@ -30,11 +31,11 @@
     <div class="row">
         <!-- Блок №1, занимающий 3 колонки Bootstrap из 12 -->
         <div class="col-md-2">
-            <h1>Задачи</h1>
+            <!--    <h1>Задачи</h1>
             <div class="nav-">
                 <a href="{{ path('task_new') }}" class="list-group-item" >Создать новую</a>
                 <a href="{{ path('task') }}"  class="list-group-item">Просмотреть все</a>
-            </div>
+            </div> -->
         </div>
           <!-- Блок №2, занимающий 5 колонки Bootstrap из 12 -->
         <div class="col-md-8">
@@ -42,7 +43,7 @@
             {% block form %}{% endblock %}
             {% block form_subtask %}{% endblock %}
             {% block HotTask %} {% endblock %}
-            {% render(controller('HomeTaskBundle:Task:HotTask')) %}
+           <!-- за комментировано  {% render(controller('HomeTaskBundle:Task:HotTask')) %} -->
         </div>
 
         <!-- Список категорий -->
@@ -60,8 +61,10 @@
         </div>
     </div>
 <!-- Подключает библиотеку jQuery, необходимую для работы скриптов Bootstrap 3 -->
-<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="{{ asset ('JS/jquery/jquery-2.1.4.min.js') }}"></script>
+     <script src="{{ asset ('JS/jquery-ui/JS/jquery-ui.min.js') }}"></script>
 <!-- Подключает скрипты JavaScript движка Twitter Bootstrap 3 -->
 <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" > </script>
+{% block JS %} {% endblock %}
  </body>
 </html>

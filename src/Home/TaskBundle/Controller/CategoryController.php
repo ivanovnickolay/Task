@@ -221,4 +221,13 @@ class CategoryController extends Controller
             ->getForm()
         ;
     }
+ public function getCategoryAction(){
+     $em=$this->getDoctrine()->getManager();
+     $Cat= $em->getRepository('HomeTaskBundle:Category')->getCategoryToCount();
+     return $this->render('HomeTaskBundle:Category:CategoryFromIndex.html.twig', array(
+         'categories'      => $Cat,
+
+     ));
+ }
 }
+

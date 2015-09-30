@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Home\TaskBundle\Entity\Task;
 use Home\TaskBundle\Form\TaskType;
+
 //use Home\TaskBundle\Entity\Subtask;
 //use Home\TaskBundle\Form\SubtaskType;
 
@@ -30,11 +31,11 @@ class TaskController extends Controller
         $entities = $em->getRepository('HomeTaskBundle:Task')->getAllActualTask();
        // $em1=$this->getDoctrine()->getManager();
        // $Cat= $em1->getRepository('HomeTaskBundle:Category')->getCategoryToCount();
-        $Cat=$this->get('TaskModel')->getCategory();
+        //$Cat=$this->get('TaskModel')->getCategory();
 
         return $this->render('HomeTaskBundle:Task:index.html.twig', array(
             'entities' => $entities,
-            'categories'=>$Cat
+
         ));
 
     }
