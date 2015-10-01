@@ -46,6 +46,7 @@ public function getHotTaskBegin()
       // $Res=$this->getEntityManager()->createQuery('SELECT T.id, T.name_task, T.begin_task, T.end_task, C.Category, DATE_DIFF(T.end_task, :d) AS prostr FROM HomeTaskBundle:Task as T, HomeTaskBundle:Category as C WHERE  (T.final <>1) and (T.category=C.id) ');
        $Res=$this->getEntityManager()->createQuery('SELECT t0.id AS id, t0.name_task AS name_task,t0.begin_task AS begin_task,t0.end_task AS end_task,t0.description AS description,t0.vajnoct AS vajnoct,t0.final AS final FROM HomeTaskBundle:Task t0');
 
+
            //$Res->setParameter('d',$Dat);
             $Result=$Res->getResult();
        return $Result;
