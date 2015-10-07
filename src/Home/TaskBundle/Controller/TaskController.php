@@ -28,7 +28,7 @@ class TaskController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository('HomeTaskBundle:Task')->getAllActualTask();
+        $entities = $em->getRepository('HomeTaskBundle:Task')->findAll();
        // $em1=$this->getDoctrine()->getManager();
        // $Cat= $em1->getRepository('HomeTaskBundle:Category')->getCategoryToCount();
         //$Cat=$this->get('TaskModel')->getCategory();

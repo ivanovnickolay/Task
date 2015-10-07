@@ -12,9 +12,10 @@
 
             </tr>
         </thead>
-        <tbody id="task" class=":nth-child">
+        <tbody  class=":nth-child">
         {% for entity in entities %}
-                <td id="name"> <a href="{{ path('task_show', { 'id': entity.id }) }}"> {{ entity.name_task }}</a></td>
+             <tr id="task">
+                <td id="name"> <a href = "{{path('task_show',{ 'id': entity.id })}}"> {{entity.name_task}}</a></td>
                 <td id="begin">{% if entity.begin_task %}{{ entity.begin_task|date('d.m.Y') }}{% endif %}</td>
                 <td id="end">{% if entity.end_task %}{{ entity.end_task|date('d.m.Y') }}{% endif %}</td>
                 <td id="diff"></td>
@@ -37,5 +38,18 @@
 -->
 {% endblock %}
 {% block JS %}
-<script src="{{ asset('JS/Task/IndexTask.js') }}"
+<script>
+    $(document).ready(function(){
+            $("tr#task").each(function (i,val) {
+                var begin=split_date(val.cells[2].textContent);
+                var end=new Date();
+                var diff= Math.round((begin.getTime() - end.getTime()) / 1000 / 60 / 60/ 24);
+                val.cells[3].textContent=diff;
+                if (diff<0) { val.setAttribute('class','danger')};
+            })});
+    function split_date(d){
+        var split=d.split('.');
+        return new Date(split[2],split[1]-1,split[0]);
+    };
+</script>
 {% endblock %}
