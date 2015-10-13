@@ -15,10 +15,10 @@ class TaskType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name_task',null,array('label'=>'Наименование задачи'))
+            ->add('nametask',null,array('label'=>'Наименование задачи'))
             //->add('begin_task')
-            ->add('begin_task','date',array('format'=>'dd-MM-yyyy','label'=>'Начало работы над задачей','widget'=>'single_text'))
-            ->add('end_task','date',array('format'=>'dd-MM-yyyy','label'=>'Окончание работы над задачей','widget'=>'single_text' ))
+            ->add('begintask','date',array('format'=>'dd.MM.yyyy','label'=>'Начало работы над задачей','widget'=>'single_text'))
+            ->add('endtask','date',array('format'=>'dd.MM.yyyy','label'=>'Окончание работы над задачей','widget'=>'single_text' ))
             ->Add('Category',null,array('label'=>'Категория задачи' ))
             ->Add('description',null,array('label'=>'Описание задачи' ))
             ->Add('vajnoct','choice',array('label'=>'Важность задачи','choices'=> array('Важно' => 'Важно', 'Средне' => 'Средне', 'Не горит' => 'Не горит')))

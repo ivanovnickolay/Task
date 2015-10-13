@@ -15,11 +15,11 @@
         <tbody  class=":nth-child">
         {% for entity in entities %}
              <tr id="task">
-                <td id="name"> <a href = "{{path('task_show',{ 'id': entity.id })}}"> {{entity.name_task}}</a></td>
-                <td id="begin">{% if entity.begin_task %}{{ entity.begin_task|date('d.m.Y') }}{% endif %}</td>
-                <td id="end">{% if entity.end_task %}{{ entity.end_task|date('d.m.Y') }}{% endif %}</td>
+                <td id="name"> <a href = "{{path('task_show',{ 'id': entity.id })}}"> {{entity.nametask}}</a></td>
+                <td id="begin">{% if entity.begintask %}{{ entity.begintask|date('d.m.Y') }}{% endif %}</td>
+                <td id="end">{% if entity.endtask %}{{ entity.endtask|date('d.m.Y') }}{% endif %}</td>
                 <td id="diff"></td>
-                <td></td>
+                <td>{% if entity.category %}{{ entity.category }}{% endif %}</td>
              </tr>
         {% endfor %}
         </tbody>

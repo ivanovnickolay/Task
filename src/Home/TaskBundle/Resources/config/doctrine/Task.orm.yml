@@ -10,12 +10,12 @@ Home\TaskBundle\Entity\Task:
                 strategy: AUTO
     lifecycleCallbacks: {  }
     fields:
-       name_task:
+       nametask:
             type: string
             length: 255
-       begin_task:
+       begintask:
             type: date
-       end_task:
+       endtask:
             type: date
        description:
             type: string

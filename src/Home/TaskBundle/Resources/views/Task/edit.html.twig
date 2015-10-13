@@ -6,16 +6,16 @@
     {{ form_start(edit_form,{'attr':{'class':'form-horizontal'}})}}
     {{ form_errors(edit_form) }}
     <div class="form-group">
-        {{ form_label(edit_form.name_task,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
-        <div class="col-sm-6">{{ form_widget(edit_form.name_task,{attr:{'class':'form-control'}})}} </div>
+        {{ form_label(edit_form.nametask,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
+        <div class="col-sm-6">{{ form_widget(edit_form.nametask,{attr:{'class':'form-control'}})}} </div>
     </div>
     <div class="form-group">
-        {{ form_label(edit_form.begin_task,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
-        <div class="col-sm-6">{{ form_widget(edit_form.begin_task,{attr:{'class':'form-control'}}) }} </div>
+        {{ form_label(edit_form.begintask,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
+        <div class="col-sm-6">{{ form_widget(edit_form.begintask,{attr:{'class':'form-control'}}) }} </div>
     </div>
     <div class="form-group">
-        {{ form_label(edit_form.end_task,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
-        <div class="col-sm-6">{{ form_widget(edit_form.end_task,{attr:{'class':'form-control'}}) }} </div>
+        {{ form_label(edit_form.endtask,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
+        <div class="col-sm-6">{{ form_widget(edit_form.endtask,{attr:{'class':'form-control'}}) }} </div>
     </div>
     <div class="form-group">
         {{ form_label(edit_form.Category,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
@@ -46,4 +46,27 @@
     </li>
     <li>{{ form(delete_form) }}</li>
 </ul>
+{% endblock %}
+
+{% block JS %}
+<script>
+    $(document).ready(function(){
+
+        $( "#task_begintask" ).datepicker({
+                    monthNames:["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+                    dayNamesMin:["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                    firstDay:1,
+                    dateFormat:"dd.mm.yy",}
+        );
+        $( "#task_endtask" ).datepicker({monthNames:["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+            dayNamesMin:["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+            firstDay:1,
+            dateFormat:"dd.mm.yy"});
+        // TODO
+        // написать валидацию полей
+        // написать установку даты окочания работы что бы нельзя было ее установить позже даты начала //
+    });
+
+</script>
+
 {% endblock %}

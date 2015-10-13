@@ -29,17 +29,17 @@ class Task
     /**
      * @var string
      */
-    private $name_task;
+    private $nametask;
 
     /**
      * @var \DateTime
      */
-    private $begin_task;
+    private $begintask;
 
     /**
      * @var \DateTime
      */
-    private $end_task;
+    private $endtask;
 
 
     /**
@@ -50,7 +50,7 @@ class Task
      */
     public function setNameTask($nameTask)
     {
-        $this->name_task = $nameTask;
+        $this->nametask = $nameTask;
 
         return $this;
     }
@@ -62,7 +62,7 @@ class Task
      */
     public function getNameTask()
     {
-        return $this->name_task;
+        return $this->nametask;
     }
 
     /**
@@ -73,7 +73,7 @@ class Task
      */
     public function setBeginTask($beginTask)
     {
-        $this->begin_task = $beginTask;
+        $this->begintask = $beginTask;
 
         return $this;
     }
@@ -85,7 +85,7 @@ class Task
      */
     public function getBeginTask()
     {
-        return $this->begin_task;
+        return $this->begintask;
     }
 
     /**
@@ -96,7 +96,7 @@ class Task
      */
     public function setEndTask($endTask)
     {
-        $this->end_task = $endTask;
+        $this->endtask = $endTask;
 
         return $this;
     }
@@ -108,13 +108,13 @@ class Task
      */
     public function getEndTask()
     {
-        return $this->end_task;
+        return $this->endtask;
     }
 
    public function isEnd_task_valid(){
    // $Interval = date_diff($this->end_task,$this->begin_task);
     // дата конца не может быть раньше деты начала
-      if ($this->begin_task>$this->end_task)
+      if ($this->begintask>$this->endtask)
       {return false;}
       else {return true;}
    }

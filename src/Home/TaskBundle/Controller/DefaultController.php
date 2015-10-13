@@ -14,8 +14,14 @@ class DefaultController extends Controller
     {
         //$em=$this->getDoctrine()->getManager();
         //$Cat= $em->getRepository('HomeTaskBundle:Category')->getCategoryToCount();
-        $Cat= $this->get('TaskModel')->getCategory();
-        return $this->render('HomeTaskBundle:Default:index.html.twig', array('categories' => $Cat));
+        //$Cat= $this->get('TaskModel')->getCategory();
+        //return $this->render('HomeTaskBundle:Default:index.html.twig', array('categories' => $Cat));
+        $em = $this->getDoctrine()->getManager();
+        $entities = $em->getRepository('HomeTaskBundle:Task')->findAll();
+        return $this->render('HomeTaskBundle:Task:index.html.twig', array(
+            'entities' => $entities,
+
+        ));
     }
 }
 

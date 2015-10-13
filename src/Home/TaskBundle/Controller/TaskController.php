@@ -97,8 +97,8 @@ class TaskController extends Controller
         ));
         // переопределяем значение полей что бы дату по умолчанию, при создании новой задачи, ставило текущуу
         $form->add('submit', 'submit', array('label' => 'Создать задачу'));
-        $form->add('begin_task','date',array('format'=>'dd.MM.yyyy','label'=>'Начало работы над задачей', 'data'=> new \DateTime,'widget'=>'single_text'));
-        $form->add('end_task','date',array('format'=>'dd.MM.yyyy','label'=>'Окончание работы над задачей','data'=> new \DateTime,'widget'=>'single_text' ));
+        $form->add('begintask','date',array('format'=>'dd.MM.yyyy','label'=>'Начало работы над задачей', 'data'=> new \DateTime,'widget'=>'single_text'));
+        $form->add('endtask','date',array('format'=>'dd.MM.yyyy','label'=>'Окончание работы над задачей','data'=> new \DateTime,'widget'=>'single_text' ));
         $form->add('description',null,array('label'=>'Описание задачи'));
         $form->add('vajnoct','choice',array('label'=>'Важность задачи','choices'=> array('Важно' => 'Важно', 'Средне' => 'Средне', 'Не горит' => 'Не горит')));
 

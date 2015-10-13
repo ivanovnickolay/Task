@@ -4,16 +4,16 @@
            {{ form_start(form,{'attr':{'class':'form-horizontal'}})}}
            {{ form_errors(form) }}
          <div class="form-group">
-             {{ form_label(form.name_task,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
-             <div class="col-sm-6">{{ form_widget(form.name_task,{attr:{'class':'form-control'}})}} </div>
+             {{ form_label(form.nametask,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
+             <div class="col-sm-6">{{ form_widget(form.nametask,{attr:{'class':'form-control'}})}} </div>
          </div>
          <div class="form-group">
-            {{ form_label(form.begin_task,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
-            <div class="col-sm-6">{{ form_widget(form.begin_task,{attr:{'class':'form-control'}}) }} </div>
+            {{ form_label(form.begintask,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
+            <div class="col-sm-6">{{ form_widget(form.begintask,{attr:{'class':'form-control'}}) }} </div>
          </div>
          <div class="form-group">
-        {{ form_label(form.end_task,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
-         <div class="col-sm-6">{{ form_widget(form.end_task,{attr:{'class':'form-control'}}) }} </div>
+        {{ form_label(form.endtask,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
+         <div class="col-sm-6">{{ form_widget(form.endtask,{attr:{'class':'form-control'}}) }} </div>
         </div>
         <div class="form-group">
         {{ form_label(form.Category,null,{'label_attr':{'class':'col-sm-3 control-label'}}) }}
@@ -48,13 +48,13 @@
     <script>
         $(document).ready(function(){
 
-            $( "#task_begin_task" ).datepicker({
+            $( "#task_begintask" ).datepicker({
                         monthNames:["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
                         dayNamesMin:["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
                         firstDay:1,
                         dateFormat:"dd.mm.yy",}
             );
-            $( "#task_end_task" ).datepicker({monthNames:["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+            $( "#task_endtask" ).datepicker({monthNames:["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
                 dayNamesMin:["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
                 firstDay:1,
                 dateFormat:"dd.mm.yy"});
